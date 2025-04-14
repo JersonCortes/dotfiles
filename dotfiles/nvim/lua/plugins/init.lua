@@ -29,10 +29,27 @@ return {
   {
   	"nvim-treesitter/nvim-treesitter",
   	opts = {
+      auto_install = true,
   		ensure_installed = {
   			"vim", "lua", "vimdoc",
-       "html", "css", "c"
+        "html", "css", "c", "rust"
   		},
   	},
   },
+  {
+      "kawre/leetcode.nvim",
+      cmd = 'Leet',
+      build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+      dependencies = {
+          "nvim-telescope/telescope.nvim",
+          "nvim-lua/plenary.nvim",
+          "MunifTanjim/nui.nvim",
+      },
+      opts = {
+          -- configuration goes here
+      },
+      config = function()
+        require "configs.leetcode"
+      end,
+  }
 }

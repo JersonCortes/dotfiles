@@ -4,7 +4,9 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "clangd", "asm_lsp", "cmake", "pyright","dockerls" }
+local servers = {
+ "asm_lsp","clangd","cmake","cssls","dockerls","pyright","rust_analyzer"
+}
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -15,24 +17,9 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.rust_analyzer.setup {
-  -- Other Configs ...
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-
-  settings = {
-    ["rust-analyzer"] = {
-      -- Other Settings ...
-      procMacro = {
-        ignored = {
-            leptos_macro = {
-                -- optional: --
-                -- "component",
-                "server",
-            },
-        },
-      },
-    },
-  }
+lspconfig.html.setup{
+    on_attach = on_attach,
+    on_init = on_init,
+    capabilities = capabilities,
+    filetypes = { "html", "rust" }
 }

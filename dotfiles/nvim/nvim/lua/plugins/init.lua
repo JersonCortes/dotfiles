@@ -36,4 +36,30 @@ return {
   		},
   	},
   },
+
+  {
+      "kawre/leetcode.nvim",
+      cmd = 'Leet',
+      build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+      dependencies = {
+          "nvim-telescope/telescope.nvim",
+          "nvim-lua/plenary.nvim",
+          "MunifTanjim/nui.nvim",
+      },
+      opts = {
+          -- configuration goes here
+      },
+      config = function()
+        require "configs.leetcode"
+      end,
+  },
+
+  {
+    'jedrzejboczar/devcontainers.nvim',
+    dependencies = {
+      'nvim-lspconfig', -- for configuration using on_new_config hook
+      'miversen33/netman.nvim', -- optional to browse files in docker container
+    },
+    opts = {},
+  },
 }

@@ -1,15 +1,15 @@
-#Dotfiles
+# Dotfiles
 Dotfiles for minimal Arch-Linux desktop with Hyprland and other utilities.
 
-TODO. Add instructions to enable nvidia-drm
-TODO. Add yay installation.
-TODO. Add wine-ge installation after yay (remove from packages) or move yay installation before downloading ALL packages(?).
+TODO:
+* Add yay installation.
+* Add wine-ge installation after yay (remove from packages) or move yay installation before downloading ALL packages(?).
 
-#WARNING
+# WARNING
 
-This setup should be done after making your base installation of Linux.
+This setup should be done after making your base installation of ArchLinux.
 
-##Packages installation
+## Packages installation
 
 Before you start installing packages you should ensure the multilib repository is enabled. You can do so by checking the `[multilib]` section is uncommented in the file: `/etc/pacman.conf`.
 

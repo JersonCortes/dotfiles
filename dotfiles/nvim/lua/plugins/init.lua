@@ -30,12 +30,9 @@ return {
   	"nvim-treesitter/nvim-treesitter",
   	opts = {
       auto_install = true,
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-        "html", "css", "c", "rust"
-  		},
   	},
   },
+
   {
       "kawre/leetcode.nvim",
       cmd = 'Leet',
@@ -45,11 +42,16 @@ return {
           "nvim-lua/plenary.nvim",
           "MunifTanjim/nui.nvim",
       },
-      opts = {
-          -- configuration goes here
-      },
       config = function()
         require "configs.leetcode"
       end,
-  }
+  },
+
+  {
+    'jedrzejboczar/devcontainers.nvim',
+    dependencies = {
+      'nvim-lspconfig', -- for configuration using on_new_config hook
+      'netman.nvim', -- optional to browse files in docker container
+    },
+  },
 }

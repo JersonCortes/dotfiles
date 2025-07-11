@@ -1,26 +1,18 @@
--- EXAMPLE 
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
-
-local lspconfig = require "lspconfig"
+require("nvchad.configs.lspconfig").defaults()
 
 local servers = {
- "asm_lsp","clangd","cmake","cssls","dockerls","pyright","rust_analyzer"
+  bashls = {},
+  cssls = {},
+  docker_compose_language_service = {},
+  dockerls = {},
+  html = {},
+  pyright = {},
+  rust_analyzer = {},
 }
 
---Devcontainers setup
-local lspconfig_util = require('lspconfig.util')
-
-lspconfig_util.on_setup = lspconfig_util.add_hook_after(lspconfig_util.on_setup, function(config, user_config)
-    config.on_new_config = lspconfig_util.add_hook_after(config.on_new_config, require('devcontainers').on_new_config)
-end)
-
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-  }
+for name, opts in pairs(servers) do
+  vim.lsp.enable(name)
+  vim.lsp.config(name, opts)
 end
+
+-- read :h vim.lsp.config for changing options of lsp servers 

@@ -7,7 +7,9 @@ local servers = {
   dockerls = {},
   html = {},
   pyright = {},
-  rust_analyzer = {},
+  rust_analyzer = {
+    on_new_config = require('devcontainers').on_new_config,
+  },
 }
 
 for name, opts in pairs(servers) do

@@ -8,7 +8,7 @@ local servers = {
   html = {},
   pyright = {},
   rust_analyzer = {
-    on_new_config = require('devcontainers').on_new_config,
+    cmd = require('devcontainers').lsp_cmd(vim.lsp.config.rust_analyzer.cmd)
   },
 }
 

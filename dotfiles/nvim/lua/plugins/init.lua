@@ -29,7 +29,6 @@ return {
   {
     'jedrzejboczar/devcontainers.nvim',
     dependencies = {
-      'nvim-lspconfig', -- for configuration using on_new_config hook
       'miversen33/netman.nvim', -- optional to browse files in docker container
     },
   },

@@ -10,6 +10,10 @@ local servers = {
   rust_analyzer = {
     cmd = require('devcontainers').lsp_cmd(vim.lsp.config.rust_analyzer.cmd)
   },
+  gopls= {
+    cmd = require('devcontainers').lsp_cmd(vim.lsp.config.gopls.cmd)
+  },
+
 }
 
 for name, opts in pairs(servers) do

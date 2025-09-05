@@ -7,13 +7,12 @@ local servers = {
   dockerls = {},
   html = {},
   pyright = {},
-  rust_analyzer = {
-    cmd = require('devcontainers').lsp_cmd(vim.lsp.config.rust_analyzer.cmd)
+  rust_analyzer = {},
+  gopls = {
+    cmd = require('devcontainers').lsp_cmd({ 'gopls' }),
   },
-  gopls= {
-    cmd = require('devcontainers').lsp_cmd(vim.lsp.config.gopls.cmd)
-  },
-
+  terraformls = {},
+  pylsp = {},
 }
 
 for name, opts in pairs(servers) do

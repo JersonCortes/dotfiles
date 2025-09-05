@@ -20,23 +20,29 @@ return {
     opts = {
       auto_install = true,
       ensure_installed = {
-        "vim", "lua", "vimdoc",
-        "html", "css"
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
       },
     },
   },
 
   {
-    'jedrzejboczar/devcontainers.nvim',
+    "jedrzejboczar/devcontainers.nvim",
     dependencies = {
-      'miversen33/netman.nvim', -- optional to browse files in docker container
-      'stevearc/overseer.nvim', -- see progress and notificacions
+      "miversen33/netman.nvim", -- optional to browse files in docker container
+      "stevearc/overseer.nvim", -- see progress and notificacions
+    },
+    opts = {
+      log = { level = "trace" },
     },
   },
 
   {
     "kawre/leetcode.nvim",
-    cmd = 'Leet',
+    cmd = "Leet",
     build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
     dependencies = {
       "nvim-telescope/telescope.nvim",
@@ -47,5 +53,4 @@ return {
       require "configs.leetcode"
     end,
   },
-
 }
